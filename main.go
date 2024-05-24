@@ -56,7 +56,7 @@ func main() {
 
   	// log.Fatal(http.ListenAndServe(appPort, handler))
 	
-	router.Run(":" + envPortOr("3000"))
+	router.Run(envPortOr("3000"))
 }
 
 func envPortOr(port string) string {
