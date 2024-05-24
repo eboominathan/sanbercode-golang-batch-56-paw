@@ -52,10 +52,6 @@ func main() {
 	router.POST("/persons", controllers.InsertPerson)
 	router.PUT("/persons/:id", controllers.UpdatePerson)
 	router.DELETE("/persons/:id", controllers.DeletePerson)
-
-    portApp := 8080
-    log.Printf("Starting server on port %s", portApp)
-    if err := http.ListenAndServe(":" + portApp, nil); err != nil {
-        log.Fatalf("Error starting server: %v", err)
-    }
+	
+	router.Run("localhost:8080")
 }
