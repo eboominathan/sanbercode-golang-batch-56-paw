@@ -53,5 +53,5 @@ func main() {
 	router.PUT("/persons/:id", controllers.UpdatePerson)
 	router.DELETE("/persons/:id", controllers.DeletePerson)
 
-	router.Run("sanbercode-golang-batch-56-paw-production.up.railway.app")
+	router.Run("localhost:443")
 }
