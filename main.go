@@ -52,6 +52,19 @@ func main() {
 	router.POST("/persons", controllers.InsertPerson)
 	router.PUT("/persons/:id", controllers.UpdatePerson)
 	router.DELETE("/persons/:id", controllers.DeletePerson)
+
+	  var appPort = envPortOr("3000")
+
+  	log.Fatal(http.ListenAndServe(appPort, handler))
 	
-	router.Run("localhost:8080")
+	// router.Run("0.0.0.0:" + PORT)
+}
+
+func envPortOr(port string) string {
+  // If `PORT` variable in environment exists, return it
+  if envPort := os.Getenv("PORT"); envPort != "" {
+    return ":" + envPort
+  }
+  // Otherwise, return the value of `port` variable from function argument
+  return ":" + port
 }
