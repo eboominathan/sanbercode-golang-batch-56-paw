@@ -53,5 +53,9 @@ func main() {
 	router.PUT("/persons/:id", controllers.UpdatePerson)
 	router.DELETE("/persons/:id", controllers.DeletePerson)
 
-	router.Run("localhost:PORT")
+    portApp := 8080
+    log.Printf("Starting server on port %s", portApp)
+    if err := http.ListenAndServe(":" + portApp, nil); err != nil {
+        log.Fatalf("Error starting server: %v", err)
+    }
 }
