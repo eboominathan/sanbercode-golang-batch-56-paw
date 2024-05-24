@@ -53,11 +53,10 @@ func main() {
 	router.PUT("/persons/:id", controllers.UpdatePerson)
 	router.DELETE("/persons/:id", controllers.DeletePerson)
 
-	  var appPort = envPortOr("3000")
 
-  	log.Fatal(http.ListenAndServe(appPort, handler))
+  	// log.Fatal(http.ListenAndServe(appPort, handler))
 	
-	// router.Run("0.0.0.0:" + PORT)
+	router.Run("0.0.0.0:" + envPortOr("3000"))
 }
 
 func envPortOr(port string) string {
